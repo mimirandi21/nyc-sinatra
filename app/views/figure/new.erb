@@ -1,0 +1,20 @@
+<h1>Create a fucking figure</h1><br/>
+<form method="post" action="/figures">
+        <label for="figure_name">Name: </label>
+        <input type="text" id="figure_name" name="figure[name]"><br/>
+    <h3>Titles</h3><br/>
+        <% @titles.each do |title|%>
+            <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="title_<%= title.id %>"><%= title.name %>
+        <% end %>
+    <br/>
+    <h3>Create New Title:</h3><br/>
+    <input type="text" id="new_title" name="title[name]"><br/>
+    <h3>Landmarks</h3><br/>
+        <% @landmarks.each do |landmark|%>
+            <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="landmark_<%= landmark.id %>"><%= landmark.name %>
+        <% end %>
+    <br/>
+    <h3>Create New Landmark:</h3><br/>
+    <input type="text" id="new_landmark" name="landmark[name]" value="">
+    <input type="text" id="landmark_year_completed" name="landmark[year_completed">
+    <input type="submit" value="Create New Figure">
